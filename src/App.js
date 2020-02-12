@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/*
+ * @Author: Rider
+ * @Date: 2020-02-03 15:39:45
+ * @LastEditors  : Rider
+ * @LastEditTime : 2020-02-11 22:18:39
+ * @Description: file content
+ */
+import React from "react";
+import {
+  HashRouter as Router,
+	Switch,
+	Route,
+} from "react-router-dom";
 
-function App() {
+import Login from "./screens/loginScreen";
+import Home from "./screens/homeScreen";
+
+
+export default function () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <Router>
+			<Switch>
 
-export default App;
+				<Route exact path='/' >
+					<Login />
+				</Route>
+
+				<Route exact path='/login' >
+					<Login />
+				</Route>
+
+				<Route path='/home'>
+					<Home />
+				</Route>
+
+			</Switch>
+		</Router>
+  )
+}
